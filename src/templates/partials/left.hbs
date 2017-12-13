@@ -1,0 +1,42 @@
+<aside>
+  <h2 class="side-title">Shop By</h2>
+
+  <div class="widget">
+
+    <h3 class="side-subtitle">Applied:</h3>
+
+    <ul class="applied">
+      <li class="applied__item">
+        <button class="applied__remove">
+          <img src="{{assets}}/images/icons/remove.svg" alt="Remove" />
+        </button>
+        Attribute category: attribute 1
+      </li>
+      <li class="applied__item">
+        <button class="applied__remove">
+          <img src="{{assets}}/images/icons/remove.svg" alt="Remove" />
+        </button>
+        Attribute category: attribute 2
+      </li>
+    </ul>
+
+    <button class="btn-clear">Clear All</button>
+
+  </div>
+
+  <div class="widget">
+
+    {{#each site.facets}}
+      <h3 class="side-subtitle">{{category}}</h3>
+      <ul class="attributes">
+        {{#each filters}}
+          <li class="attributes__item">
+            <a href="{{url}}">{{name}} <span class="attributes__count">({{results}})</span></a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/each}}
+
+  </div>
+
+</aside>

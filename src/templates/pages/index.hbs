@@ -1,0 +1,116 @@
+---
+title: Home
+layout: src/templates/layouts/2column-left.hbs
+---
+
+<div class="filters">
+
+  <ul class="layouter" id="layouter">
+    <li class="layouter__item layouter__item--active" data-style="products--grid">
+      <img src="{{assets}}/images/icons/grid.svg" alt="Grid Layout" />
+    </li>
+    <li class="layouter__item" data-style="products--list">
+      <img src="{{assets}}/images/icons/list.svg" alt="List Layout" />
+    </li>
+  </ul>
+
+  <div class="sorter">
+    <label>Sort</label>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="dropdown__label">Position</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shower">
+    <label>Show</label>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="dropdown__label">15</span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#">5</a></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">15</a></li>
+        <li><a href="#">20</a></li>
+      </ul>
+    </div>
+    <div class="shower__amounts">
+      1 - 15 of 150
+    </div>
+  </div>
+
+  <div class="paginater">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" class="pagination__arrow pagination__arrow--left">
+            Previous
+          </a>
+        </li>
+        <li><a href="#">1 of 10</a></li>
+        <li>
+          <a href="#" class="pagination__arrow pagination__arrow--right">
+            Next
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
+
+<ul class="products products--grid" id="products">
+  {{#each site.catalog}}
+    <li class="products__item" id="{{id}}" data-sku={{sku}}>
+      <a href="#" class="products__thumb">
+        {{#if ribbon}}
+          <span class="tag tag--{{ribbon}}">{{ribbon}}</span>
+        {{/if}}
+        
+        <img src="{{img}}" alt="{{description}}" />
+      </a>
+      <div class="products__info">
+        <h4 class="products__title"><a href="#">{{name}}</a></h4>
+        <div class="rating">
+          <div class="rating__score">
+            {{#times rating}}
+              <div class="rating__star"></div>
+            {{/times}}
+          </div>
+          <div class="rating__total">
+            {{#times 5}}
+              <div class="rating__star"></div>
+            {{/times}}
+          </div>
+        </div>
+        <div class="products__price">
+          {{#if price.special}}
+            <span class="products__price__old">${{price.regular}}</span>
+            <span class="products__price__new">${{price.special}}</span>
+          {{else}}
+            {{#if subtotal}}
+              <span>${{price}}</span>
+            {{else}}
+              <span>${{price.regular}}</span>
+            {{/if}}
+          {{/if}}
+        </div>
+        <div class="swatches">
+          {{#each colors}}
+            <div class="swatches__color" style="background-color: {{code}};">{{name}}</div>
+          {{/each}}
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>

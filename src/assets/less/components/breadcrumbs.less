@@ -1,0 +1,27 @@
+// Breadcrumbs
+.breadcrumbs {
+  list-style: none;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumbs__item {
+  display: inline;
+
+  &--active {
+    a {
+      color: #c7c7c7;
+    }
+  }
+
+  &:after {
+    content: "/";
+    margin: 0 5px;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+// Products
+.tag {
+  border-radius: 50%;
+  border: 1px solid #000;
+  font-size: 11px;
+  height: 50px;
+  left: 14px;
+  letter-spacing: 1px;
+  line-height: 48px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 14px;
+  width: 50px;
+  z-index: 1;
+
+  &--Sale {
+    border-color: #b91919;
+    color: #b91919;
+  }
+}
+.products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 45px;
+    grid-column-gap: 30px;
+  }
+
+  &--list {
+    .products__thumb {
+      float: left;
+      height: 150px;
+      margin-right: 20px;
+      padding: 0;
+      width: 150px;
+    }
+    .products__item {
+      clear: both;
+    }
+    .products__info {
+      float: right;
+      width: calc(~'100% - 170px');
+    }
+  }
+}
+.products__thumb {
+  border: 1px solid #ccc;
+  display: block;
+  margin-bottom: 20px;
+  padding-bottom: 100%;
+  position: relative;
+  transition: border-color 0.25s;
+  width: 100%;
+
+  img {
+    height: auto;
+    left: 50%;
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: max-width 0.25s ease-in;
+  }
+
+  &:hover {
+    border-color: #252525;
+
+    img {
+      max-width: 85%;
+    }
+  }
+}
+.rating {
+  margin-bottom: 25px;
+  margin-top: 15px;
+  position: relative;
+}
+.rating__score {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .rating__star {
+    opacity: 1;
+  }
+}
+.rating__star {
+  background: url(../images/icons/star.svg) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  height: 15px;
+  margin-right: 2px;
+  opacity: 0.3;
+  width: 15px;
+}
+.products__price {
+  margin-bottom: 10px;
+}
+.products__price__old {
+  text-decoration: line-through;
+}
+.products__price__new {
+  color: #b91919;
+  margin-left: 10px;
+}
+.swatches__color {
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin-right: 5px;
+  overflow: hidden;
+  text-indent: -9999px;
+}
